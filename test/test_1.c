@@ -29,12 +29,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#include<stdio.h>
+#include <stdio.h>
 #include "../tracer.h"
 
-#define TAG    "test"
+#define TAG "test"
 
-int main(int argc , char *argv[])
+int main(int argc, char *argv[])
 {
     LOG_DBG(TAG, "log_debug %d \n", LOG_LEVEL_DEBUG);
     LOG_INFO(TAG, "log_info %d \n", LOG_LEVEL_INFO);
@@ -42,11 +42,10 @@ int main(int argc , char *argv[])
     LOG_ERR(TAG, "log_err \n");
 
     set_tracer_level(LOG_LEVEL_INFO);
-    
+
     LOG_DBG(TAG, "log_debug %d \n", LOG_LEVEL_DEBUG);
     LOG_INFO(TAG, "log_info %d \n", LOG_LEVEL_INFO);
     LOG_WARN(TAG, "log_warn \n");
     LOG_ERR(TAG, "log_err \n");
     return 0;
 }
-
