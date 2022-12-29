@@ -29,6 +29,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
+#ifndef __TRACER_H__
+#define __TRACER_H__
+
 #include<stdio.h>
 #include<stdarg.h>
 
@@ -73,3 +76,5 @@ void log_fun(int level, const char *opt, const char* tag, int line, const char *
  */ 
 #define LOG_FATAL(tag, fmt, ...)  \
   log_fun(LOG_LEVEL_FATAL, "F", tag , __LINE__, __func__, fmt, ##__VA_ARGS__)
+
+#endif

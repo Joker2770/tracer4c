@@ -1,7 +1,7 @@
 /*************************************************************************
     > File Name: tracer.c
     > Author: Jintao Yang
-    > Mail: 18608842770@163.com 
+    > Mail: 18608842770@163.com
     > Created Time: Thu Dec 29 16:56:58 2022
  ************************************************************************/
 
@@ -32,19 +32,26 @@ SOFTWARE.
 #include "tracer.h"
 
 #include <string.h>
+#include <time.h>
 
 int g_current_dbg_level = LOG_LEVEL_DEBUG;
 
-void log_fun(int level, const char *opt, const char* tag, int line, const char *func, const char *fmt, ...)
+void log_fun(int level, const char *opt, const char *tag, int line, const char *func, const char *fmt, ...)
 {
-    if (level > g_current_dbg_level) {
-            char msg_buf[20*1024];
-            va_list ap; 
-            va_start(ap,fmt);                                                                       
-            sprintf(msg_buf,"%s/%s (%d): %s() ",opt, tag, line, func);
-            vsprintf(msg_buf+strlen(msg_buf),fmt,ap);
-            fprintf(stderr,"%s\n",msg_buf); 
-            va_end(ap);
+    if (level > g_current_dbg_level)
+    {
+        char msg_buf[20 * 1024];
+        va_list ap;
+        va_start(ap, fmt);
+        time_t timep;
+        struct tm *p = NULL;
+        char time1[28];
+        time(&timep);
+        p = localtime(&timep);
+        sprintf(msg_buf, "[%02d:%02d:%02d] %s/%s %s(): (%d) ", p->tm_hour, p->tm_min, p->tm_sec, opt, tag, func, line);
+        vsprintf(msg_buf + strlen(msg_buf), fmt, ap);
+        fprintf(stderr, "%s\n", msg_buf);
+        va_end(ap);
     }
 }
 
@@ -52,4 +59,3 @@ void set_tracer_level(int level)
 {
     g_current_dbg_level = level;
 }
-
