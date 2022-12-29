@@ -1,2 +1,2 @@
 # tracer4c
-Lightweight trace recorder for C applications.
+A Cross-platform Lightweight trace recorder for C applications.
