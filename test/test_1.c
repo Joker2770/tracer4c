@@ -40,6 +40,13 @@ int main(int argc , char *argv[])
     LOG_INFO(TAG, "log_info %d \n", LOG_LEVEL_INFO);
     LOG_WARN(TAG, "log_warn \n");
     LOG_ERR(TAG, "log_err \n");
+
+    set_tracer_level(LOG_LEVEL_INFO);
+    
+    LOG_DBG(TAG, "log_debug %d \n", LOG_LEVEL_DEBUG);
+    LOG_INFO(TAG, "log_info %d \n", LOG_LEVEL_INFO);
+    LOG_WARN(TAG, "log_warn \n");
+    LOG_ERR(TAG, "log_err \n");
     return 0;
 }
 

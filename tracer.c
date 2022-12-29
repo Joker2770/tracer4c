@@ -48,7 +48,7 @@ void log_fun(int level, const char *opt, const char* tag, int line, const char *
     }
 }
 
-void ModuleDebugInit(int level)
+void set_tracer_level(int level)
 {
     g_current_dbg_level = level;
 }

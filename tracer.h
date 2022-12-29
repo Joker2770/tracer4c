@@ -41,7 +41,7 @@ enum {
         LOG_LEVEL_FATAL,
 };
 
-void ModuleDebugInit(int level);
+void set_tracer_level(int level);
 void log_fun(int level, const char *opt, const char* tag, int line, const char *func, const char *fmt, ...);
 
 /*
