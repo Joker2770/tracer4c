@@ -52,5 +52,6 @@ Mkfile.old
 dkms.conf
 
 [Bb]uild/
+[Bb]uild*/
 .vs/
 .vscode/

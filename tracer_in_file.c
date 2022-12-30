@@ -39,7 +39,7 @@ char g_prefix[128] = "\0";
 
 void log_fun_f(int level, const char *opt, const char *tag, int line, const char *func, const char *fmt, ...)
 {
-    if (level > g_current_dbg_level_f)
+    if (level >= g_current_dbg_level_f)
     {
         char msg_buf[20 * 1024];
         va_list ap;

@@ -38,7 +38,7 @@ int g_current_dbg_level = LOG_LEVEL_DEBUG;
 
 void log_fun(int level, const char *opt, const char *tag, int line, const char *func, const char *fmt, ...)
 {
-    if (level > g_current_dbg_level)
+    if (level >= g_current_dbg_level)
     {
         char msg_buf[20 * 1024];
         va_list ap;
