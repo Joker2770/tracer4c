@@ -59,7 +59,7 @@ void log_fun_f(int level, const char *opt, const char *tag, int line, const char
         strcat(msg_buf, "\n");
         char szFileName[512] = "\0";
         memset(szFileName, 0, sizeof(szFileName));
-        sprintf(szFileName, "%s_%d%02d%02d.txt", g_prefix, 1900 + p->tm_year, p->tm_mon, p->tm_mday);
+        sprintf(szFileName, "%s_%d%02d%02d.txt", g_prefix, 1900 + p->tm_year, p->tm_mon + 1, p->tm_mday);
         FILE *f_pFile = NULL;
         if ((f_pFile = fopen(szFileName, "a+")) != NULL)
         {
