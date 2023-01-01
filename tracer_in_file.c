@@ -41,7 +41,8 @@ void log_fun_f(int level, const char *opt, const char *tag, int line, const char
 {
     if (level >= g_current_dbg_level_f)
     {
-        char msg_buf[20 * 1024];
+        char msg_buf[10 * 1024];
+        memset(msg_buf, 0, sizeof(msg_buf));
         va_list ap;
         va_start(ap, fmt);
         time_t timep;
