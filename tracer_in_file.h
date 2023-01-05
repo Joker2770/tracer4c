@@ -45,9 +45,16 @@ enum
   LOG_LEVEL_FATAL_F,
 };
 
-void set_tracer_level_f(int level);
-void set_tracer_name_prefix(char *prefix);
-void log_fun_f(int level, const char *opt, const char *tag, int line, const char *func, const char *fmt, ...);
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+  void set_tracer_level_f(int level);
+  void set_tracer_name_prefix(char *prefix);
+  void log_fun_f(int level, const char *opt, const char *tag, int line, const char *func, const char *fmt, ...);
+#ifdef __cplusplus
+}
+#endif
 
 /*
  *@LOG_DBG
