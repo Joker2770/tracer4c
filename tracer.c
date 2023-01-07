@@ -46,7 +46,6 @@ void log_fun(int level, const char *opt, const char *tag, int line, const char *
         va_start(ap, fmt);
         time_t timep;
         struct tm *p = NULL;
-        char time1[28];
         time(&timep);
         p = localtime(&timep);
         sprintf(msg_buf, "[%02d:%02d:%02d] %s/%s %s():(%d) ", p->tm_hour, p->tm_min, p->tm_sec, opt, tag, func, line);

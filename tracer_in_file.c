@@ -47,7 +47,6 @@ void log_fun_f(int level, const char *opt, const char *tag, int line, const char
         va_start(ap, fmt);
         time_t timep;
         struct tm *p = NULL;
-        char time1[28];
         time(&timep);
         p = localtime(&timep);
         sprintf(msg_buf, "[%02d:%02d:%02d] %s/%s %s():(%d) ", p->tm_hour, p->tm_min, p->tm_sec, opt, tag, func, line);
@@ -64,7 +63,7 @@ void log_fun_f(int level, const char *opt, const char *tag, int line, const char
         if ((f_pFile = fopen(szFileName, "a+")) != NULL)
         {
             fseek(f_pFile, 0L, SEEK_END);
-            fwrite(msg_buf, sizeof(char), strlen(msg_buf), f_pFile);
+            fwrite(msg_buf, sizeof(char), sizeof(char) * strlen(msg_buf), f_pFile);
             fclose(f_pFile);
             f_pFile=NULL;
         }
@@ -79,5 +78,5 @@ void set_tracer_level_f(int level)
 void set_tracer_name_prefix(char *prefix)
 {
     memset(g_prefix, 0, sizeof(g_prefix));
-    memcpy(g_prefix, prefix, strlen(prefix) < sizeof(g_prefix) ? strlen(prefix) : sizeof(g_prefix) - 1);
+    memcpy(g_prefix, prefix, sizeof(char)*strlen(prefix) < sizeof(g_prefix) ? sizeof(char)*strlen(prefix) : sizeof(g_prefix) - 1);
 }
