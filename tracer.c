@@ -8,7 +8,7 @@
 /**
 MIT License
 
-Copyright (c) 2022 Joker2770
+Copyright (c) 2022-2023 Joker2770
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -48,8 +48,8 @@ void log_fun(int level, const char *opt, const char *tag, int line, const char *
         struct tm *p = NULL;
         time(&timep);
         p = localtime(&timep);
-        sprintf(msg_buf, "[%02d:%02d:%02d] %s/%s %s():(%d) ", p->tm_hour, p->tm_min, p->tm_sec, opt, tag, func, line);
-        vsprintf(msg_buf + strlen(msg_buf), fmt, ap);
+        int nLen = sprintf(msg_buf, "[%02d:%02d:%02d] %s/%s %s():(%d) ", p->tm_hour, p->tm_min, p->tm_sec, opt, tag, func, line);
+        vsprintf(msg_buf + nLen, fmt, ap);
         fprintf(stderr, "%s\n", msg_buf);
         va_end(ap);
     }
